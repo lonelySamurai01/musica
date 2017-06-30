@@ -43,46 +43,61 @@ class EffectViewController: UIViewController {
   var originalImage : UIImage?
   
   @IBAction func effectButtonAction(_ sender: AnyObject) {
-    // フィルター名を指定
-    let filterName = "CIPhotoEffectMono"
-    
-    // 元々の画像の回転角度を取得
-    let rotate = originalImage!.imageOrientation
-    
-    // UIImage形式の画像をCIImage形式の画像に変換
-    let inputImage = CIImage(image: originalImage!)
-    
-    // フィルターの種類を引数で指定された種類を指定してCIFilterのインスタンスを取得
-    let effectFilter = CIFilter(name: filterName)!
-    
-    // エフェクトのパラメータを初期化
-    effectFilter.setDefaults()
-    
-    // インスタンスにエフェクトする元画像を設定
-    effectFilter.setValue(inputImage, forKey: kCIInputImageKey)
-    
-    // エフェクト後のCIImage形式の画像を取り出す
-    let outputImage = effectFilter.outputImage
-    
-    // CIContextのインスタンスを取得
-    let ciContext = CIContext(options: nil)
-    
-    // エフェクト後の画像をCIContext上に描画し、結果をcgImageとしてCGImage形式の画像を取得
-    let cgImage = ciContext.createCGImage(outputImage!, from: outputImage!.extent)
-    
-    // エフェクト後の画像をCGImage形式の画像からUIImage形式の画像に回転角度を指定して変換しImageViewに表示
-    effectImage.image = UIImage(cgImage: cgImage!, scale: 1.0, orientation: rotate)
+    // エフェクト前画像をアンラップしてエフェクト用画像として取り出す
+    if let image = originalImage {
+      // フィルター名を指定
+      let filterName = "CIPhotoEffectMono"
+      
+      // 元々の画像の回転角度を取得
+      let rotate = image.imageOrientation
+      
+      // UIImage形式の画像をCIImage形式の画像に変換
+      let inputImage = CIImage(image: image)
+      
+      // フィルターの種類を引数で指定された種類を指定してCIFilterのインスタンスを取得
+      guard let effectFilter = CIFilter(name: filterName) else {
+        return
+      }
+      
+      // エフェクトのパラメータを初期化
+      effectFilter.setDefaults()
+      
+      // インスタンスにエフェクトする元画像を設定
+      effectFilter.setValue(inputImage, forKey: kCIInputImageKey)
+      
+      // エフェクト後のCIImage形式の画像を取り出す
+      guard let outputImage = effectFilter.outputImage else {
+        return
+      }
+      
+      // CIContextのインスタンスを取得
+      let ciContext = CIContext(options: nil)
+      
+      // エフェクト後の画像をCIContext上に描画し、結果をcgImageとしてCGImage形式の画像を取得
+      guard let cgImage = ciContext.createCGImage(outputImage, from: outputImage.extent) else {
+        return
+      }
+      
+      // エフェクト後の画像をCGImage形式の画像からUIImage形式の画像に回転角度を指定して変換しImageViewに表示
+      effectImage.image = UIImage(cgImage: cgImage, scale: 1.0, orientation: rotate)
+    }
   }
   
   @IBAction func shareButtonAction(_ sender: AnyObject) {
-    // UIActivityViewControllerに表示している画像を渡す
-    let controller = UIActivityViewController(activityItems: [effectImage.image!], applicationActivities: nil)
-    
-    // iPadで落ちてしまう対策
-    controller.popoverPresentationController?.sourceView = view
-    
-    // UIActivityViewControllerを表示
-    present(controller, animated: true, completion: nil)
+    // 表示画像をアンラップしてシェア画像として取り出す
+    if let shareImage = effectImage.image {
+      // UIActivityViewControllerに渡す配列を作成
+      let shareItems = [shareImage]
+      
+      // UIActivityViewControllerにシェア画像を渡す
+      let controller = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+      
+      // iPadで落ちてしまう対策
+      controller.popoverPresentationController?.sourceView = view
+      
+      // UIActivityViewControllerを表示
+      present(controller, animated: true, completion: nil)
+    }
   }
   
   @IBAction func closeButtonAction(_ sender: AnyObject) {

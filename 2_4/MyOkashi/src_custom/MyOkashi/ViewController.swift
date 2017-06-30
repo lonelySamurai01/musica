@@ -57,15 +57,19 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
   func searchOkashi(keyword : String) {
     
     // お菓子の検索キーワードをURLエンコードする
-    let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+    guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
+      return
+    }
     
     // URLオブジェクトの生成
-    let url = URL(string: "http://www.sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode!)&max=10&order=r")
+    guard let url = URL(string: "http://www.sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r") else {
+      return
+    }
     
-    print(url ?? "値が入っていません")
+    print(url)
     
     // リクエストオブジェクトの生成
-    let req = URLRequest(url: url!)
+    let req = URLRequest(url: url)
     
     // セッションの接続をカスタマイズできる
     // タイムアウト値、キャッシュポリシーなどが指定できる。今回は、デフォルト値を使用
@@ -78,11 +82,16 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
     let task = session.dataTask(with: req, completionHandler: {
       (data , request , error) in
       
+      //セッションを終了
+      session.finishTasksAndInvalidate()
+      
       // do try catch エラーハンドリング
       do {
         
         // 受け取ったJSONデータをパース（解析）して格納
-        let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+        guard let json = try JSONSerialization.jsonObject(with: data!) as? [String:Any] else {
+          return
+        }
         
         // print("count = \(json["count"])")
         
@@ -120,8 +129,10 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
           }
         }
         
-        print ("----------------")
-        print (self.okashiList.first ?? "値がありません")
+        if let okashiList = self.okashiList.first {
+          print ("----------------")
+          print ("okashiList[0] = \(okashiList)")
+        }
         
         // Table Viewを更新する
         self.tableView.reloadData()

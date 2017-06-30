@@ -98,10 +98,11 @@ class ViewController: UIViewController , UINavigationControllerDelegate , UIImag
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // 次の画面のインスタンスを取得
-    let nextViewController = segue.destination as! EffectViewController
-    
-    // 次の画面のインスタンスに取得した画像を渡す
-    nextViewController.originalImage = captureImage
+    if let nextViewController = segue.destination as? EffectViewController {
+      
+      // 次の画面のインスタンスに取得した画像を渡す
+      nextViewController.originalImage = captureImage
+    }
   }
 }
 
