@@ -161,13 +161,10 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
     // お菓子のタイトル設定
     cell.textLabel?.text = okashiList[indexPath.row].name
     
-    // お菓子画像のURLを取り出す
-    let url = URL(string: okashiList[indexPath.row].image)
-    
-    // URLから画像を取得
-    if let image_data = try? Data(contentsOf: url!) {
+    // お菓子画像のURLを取り出し、画像を取得
+    if let url = URL(string: okashiList[indexPath.row].image), let imageData = try? Data(contentsOf: url) {
       // 正常に取得できた場合は、UIImageで画像オブジェクトを生成して、Cellにお菓子画像を設定
-      cell.imageView?.image = UIImage(data: image_data)
+      cell.imageView?.image = UIImage(data: imageData)
     }
     
     // 設定済みのCellオブジェクトを画面に反映
