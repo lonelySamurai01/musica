@@ -32,10 +32,10 @@ class ViewController: UIViewController , UINavigationControllerDelegate , UIImag
       // カメラを起動するための選択肢を定義
       let cameraAction = UIAlertAction(title: "カメラ", style: .default, handler:  { (action:UIAlertAction) in
         // カメラを起動
-        let ipc : UIImagePickerController = UIImagePickerController()
-        ipc.sourceType = .camera
-        ipc.delegate = self
-        self.present(ipc, animated: true, completion: nil)
+        let imagePickerController : UIImagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .camera
+        imagePickerController.delegate = self
+        self.present(imagePickerController, animated: true, completion: nil)
       })
       alertController.addAction(cameraAction)
     }
@@ -45,10 +45,10 @@ class ViewController: UIViewController , UINavigationControllerDelegate , UIImag
       // フォトライブラリーを起動するための選択肢を定義
       let photoLibraryAction = UIAlertAction(title: "フォトライブラリー", style: .default, handler: { (action:UIAlertAction) in
         // フォトライブラリーを起動
-        let ipc : UIImagePickerController = UIImagePickerController()
-        ipc.sourceType = .photoLibrary
-        ipc.delegate = self
-        self.present(ipc, animated: true, completion: nil)
+        let imagePickerController : UIImagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        self.present(imagePickerController, animated: true, completion: nil)
       })
       alertController.addAction(photoLibraryAction)
     }

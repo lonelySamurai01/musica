@@ -28,13 +28,13 @@ class ViewController: UIViewController , UINavigationControllerDelegate , UIImag
     if UIImagePickerController.isSourceTypeAvailable(.camera){
       print("カメラは利用できます")
       // (1)UIImagePickerControllerのインスタンスを作成
-      let ipc = UIImagePickerController()
+      let imagePickerController = UIImagePickerController()
       // (2)sourceTypeにCameraを設定
-      ipc.sourceType = .camera
+      imagePickerController.sourceType = .camera
       // (3)delegate設置
-      ipc.delegate = self
+      imagePickerController.delegate = self
       // (4)モーダルビューで表示
-      present(ipc, animated: true, completion: nil)
+      present(imagePickerController, animated: true, completion: nil)
     }else{
       print("カメラが利用できません")
     }
