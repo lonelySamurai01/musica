@@ -101,7 +101,7 @@ class ViewController: UIViewController {
   }
   
   // 経過時間の処理
-  func timerInterrupt(_ timer:Timer) {
+  @objc func timerInterrupt(_ timer:Timer) {
     
     // count(経過時間)に+1していく
     count += 1
