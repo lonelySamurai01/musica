@@ -37,19 +37,38 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
   @IBOutlet weak var tableView: UITableView!
 
   // お菓子のリスト（タプル配列）
-  var okashiList : [(maker:String , name:String , link:String , image:String)] = []
+  var okashiList : [(maker:String , name:String , link:URL , image:URL)] = []
 
   //サーチボタンクリック時
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     // キーボードを閉じる
     view.endEditing(true)
-    // デバックエリアに出力
-    print(searchBar.text ?? "値が入っていません")
     
     if let searchWord = searchBar.text {
+      // デバックエリアに出力
+      print(searchWord)
+      
       // 入力されていたら、お菓子を検索
       searchOkashi(keyword: searchWord)
     }
+  }
+  
+  //JSONのitem内のデータ構造
+  struct ItemJson: Codable {
+    //メーカー
+    let maker: String?
+    //お菓子の名称
+    let name: String?
+    //掲載URL
+    let url: URL?
+    //画像URL
+    let image: URL?
+  }
+  
+  //JSONのデータ構造
+  struct ResultJson: Codable {
+    //複数要素
+    let item:[ItemJson]?
   }
   
   // SearchOkashiメソッド
@@ -57,7 +76,7 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
   func searchOkashi(keyword : String) {
     
     // お菓子の検索キーワードをURLエンコードする
-    guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
+    guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
       return
     }
     
@@ -71,12 +90,8 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
     // リクエストオブジェクトの生成
     let req = URLRequest(url: url)
     
-    // セッションの接続をカスタマイズできる
-    // タイムアウト値、キャッシュポリシーなどが指定できる。今回は、デフォルト値を使用
-    let configuration = URLSessionConfiguration.default
-    
     // セッション情報を取り出し
-    let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
+    let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
     
     // リクエストをタスクとして登録
     let task = session.dataTask(with: req, completionHandler: {
@@ -87,56 +102,36 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
       
       // do try catch エラーハンドリング
       do {
+        //JSONDecoderのインスタンス取得
+        let decoder = JSONDecoder()
         
         // 受け取ったJSONデータをパース（解析）して格納
-        guard let json = try JSONSerialization.jsonObject(with: data!) as? [String:Any] else {
-          return
-        }
+        let json = try decoder.decode(ResultJson.self, from: data!)
         
-        // print("count = \(json["count"])")
-        
-        // お菓子のリストを初期化
-        self.okashiList.removeAll()
+        print(json)
         
         // お菓子の情報が取得できているか確認
-        if let items = json["item"] as? [[String:Any]] {
-          
+        if let items = json.item {
+          // お菓子のリストを初期化
+          self.okashiList.removeAll()
           // 取得しているお菓子の数だけ処理
           for item in items {
-            // メーカー名
-            guard let maker = item["maker"] as? String else {
-              continue
+            // メーカー名、お菓子の名称、掲載URL、画像URLをアンラップ
+            if let maker = item.maker , let name = item.name , let link = item.url , let image = item.image {
+              // １つのお菓子をタプルでまとめて管理
+              let okashi = (maker,name,link,image)
+              // お菓子の配列へ追加
+              self.okashiList.append(okashi)
             }
-            // お菓子の名称
-            guard let name = item["name"] as? String else {
-              continue
-            }
-            // 掲載URL
-            // urlからlinkに名称を変更しているのでご注意ください
-            guard let link = item["url"] as? String else {
-              continue
-            }
-            // 画像URL
-            guard let image = item["image"] as? String else {
-              continue
-            }
-            
-            // １つのお菓子をタプルでまとめて管理
-            let okashi = (maker,name,link,image)
-            // お菓子の配列へ追加
-            self.okashiList.append(okashi)
-            
+          }
+          // Table Viewを更新する
+          self.tableView.reloadData()
+          
+          if let okashiList = self.okashiList.first {
+            print ("----------------")
+            print ("okashiList[0] = \(okashiList)")
           }
         }
-        
-        if let okashiList = self.okashiList.first {
-          print ("----------------")
-          print ("okashiList[0] = \(okashiList)")
-        }
-        
-        // Table Viewを更新する
-        self.tableView.reloadData()
-        
       } catch {
         // エラー処理
         print("エラーが出ました")
@@ -145,7 +140,7 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
     // ダウンロード開始
     task.resume()
   }
-  
+
   // Cellの総数を返すdatasourceメソッド、必ず記述する必要があります
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // お菓子リストの総数
@@ -161,8 +156,8 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
     // お菓子のタイトル設定
     cell.textLabel?.text = okashiList[indexPath.row].name
     
-    // お菓子画像のURLを取り出し、画像を取得
-    if let url = URL(string: okashiList[indexPath.row].image), let imageData = try? Data(contentsOf: url) {
+    // お菓子画像を取得
+    if let imageData = try? Data(contentsOf: okashiList[indexPath.row].image) {
       // 正常に取得できた場合は、UIImageで画像オブジェクトを生成して、Cellにお菓子画像を設定
       cell.imageView?.image = UIImage(data: imageData)
     }
@@ -177,11 +172,8 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
     // ハイライト解除
     tableView.deselectRow(at: indexPath, animated: true)
     
-    // URLをstring → URL型に変換
-    let urlToLink = URL(string: okashiList[indexPath.row].link)
-    
     // SFSafariViewを開く
-    let safariViewController = SFSafariViewController(url: urlToLink!)
+    let safariViewController = SFSafariViewController(url: okashiList[indexPath.row].link)
     
     // delegateの通知先を自分自身
     safariViewController.delegate = self
