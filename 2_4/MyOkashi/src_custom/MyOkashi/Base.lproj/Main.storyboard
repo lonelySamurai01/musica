@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,29 +13,23 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyOkashi" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gbH-mv-iFw">
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I4r-P1-Yqe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fqZ-JD-B3N">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="okashiCell" textLabel="Gwz-YV-GYZ" style="IBUITableViewCellStyleDefault" id="f0h-hH-R3A">
-                                        <rect key="frame" x="0.0" y="28" width="383" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="okashiCell" textLabel="0Zk-ua-q3t" style="IBUITableViewCellStyleDefault" id="BNJ-cs-R2A">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f0h-hH-R3A" id="IEb-Hd-SSQ">
-                                            <frame key="frameInset" width="383" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BNJ-cs-R2A" id="hBR-Uc-9hJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gwz-YV-GYZ">
-                                                    <frame key="frameInset" minX="15" width="353" height="43.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Zk-ua-q3t">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -44,26 +40,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9eT-fM-AGQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="gbH-mv-iFw" secondAttribute="trailing" constant="-20" id="Brj-sa-yEd"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I4r-P1-Yqe" secondAttribute="bottom" id="ML9-vO-eEi"/>
-                            <constraint firstItem="I4r-P1-Yqe" firstAttribute="top" secondItem="gbH-mv-iFw" secondAttribute="bottom" id="VrA-Pv-Pfz"/>
-                            <constraint firstItem="gbH-mv-iFw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="XTW-9Q-1i7"/>
-                            <constraint firstItem="gbH-mv-iFw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="eU2-V3-4aq"/>
-                            <constraint firstItem="I4r-P1-Yqe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="g21-Rc-ig3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="I4r-P1-Yqe" secondAttribute="trailing" constant="-20" id="moh-mS-ycO"/>
+                            <constraint firstItem="9eT-fM-AGQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QUn-5z-kYj"/>
+                            <constraint firstItem="fqZ-JD-B3N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="V6N-P3-ubD"/>
+                            <constraint firstItem="9eT-fM-AGQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Wf0-JK-gV0"/>
+                            <constraint firstItem="fqZ-JD-B3N" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Ybf-Aq-h6a"/>
+                            <constraint firstItem="9eT-fM-AGQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dk0-aQ-od6"/>
+                            <constraint firstItem="fqZ-JD-B3N" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hai-SF-keb"/>
+                            <constraint firstItem="fqZ-JD-B3N" firstAttribute="top" secondItem="9eT-fM-AGQ" secondAttribute="bottom" id="tBq-KY-33u"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="searchText" destination="gbH-mv-iFw" id="wQ1-x8-SvK"/>
-                        <outlet property="tableView" destination="I4r-P1-Yqe" id="ftY-R9-lYG"/>
+                        <outlet property="searchText" destination="9eT-fM-AGQ" id="FTB-Hd-AQI"/>
+                        <outlet property="tableView" destination="fqZ-JD-B3N" id="RLE-MF-dQQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+            <point key="canvasLocation" x="136.80000000000001" y="169.56521739130437"/>
         </scene>
     </scenes>
 </document>

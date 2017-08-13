@@ -1,15 +1,27 @@
-//
-//  ViewController.swift
-//  MyOkashi
-//
-//  Created by Swift-Beginners on 2017/08/13.
-//  Copyright © 2017年 Swift-Beginners. All rights reserved.
-//
-
+//: A UIKit based Playground for presenting user interface
+  
 import UIKit
+import PlaygroundSupport
+import SafariServices
 
-class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSource {
+class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDataSource , UITableViewDelegate , SFSafariViewControllerDelegate {
+    override func loadView() {
+        let view = UIView()
+        view.frame = CGRect(x: 0, y: 0, width: 640, height: 480)
+        view.backgroundColor = .white
 
+        searchText = UISearchBar()
+        searchText.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 56)
+        view.addSubview(searchText)
+        
+        tableView = UITableView()
+        tableView.frame = CGRect(x: 0, y: 56, width: view.frame.size.width, height: view.frame.size.height - 56)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "okashiCell")
+        view.addSubview(tableView)
+
+        self.view = view
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,15 +33,13 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
         
         // Table ViewのdataSourceを設定
         tableView.dataSource = self
+        
+        // Table Viewのdelegateを設定
+        tableView.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    @IBOutlet weak var searchText: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    
+    var searchText: UISearchBar!
+    var tableView: UITableView!
     
     // お菓子のリスト（タプル配列）
     var okashiList : [(maker:String , name:String , link:URL , image:URL)] = []
@@ -65,13 +75,12 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
         //複数要素
         let item:[ItemJson]?
     }
-    
     // SearchOkashiメソッド
     // 第一引数：keyword 検索したいワード
     func searchOkashi(keyword : String) {
         
         // お菓子の検索キーワードをURLエンコードする
-        guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+        guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
             return
         }
         
@@ -85,8 +94,12 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
         // リクエストオブジェクトの生成
         let req = URLRequest(url: url)
         
+        // セッションの接続をカスタマイズできる
+        // タイムアウト値、キャッシュポリシーなどが指定できる。今回は、デフォルト値を使用
+        let configuration = URLSessionConfiguration.default
+        
         // セッション情報を取り出し
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
         
         // リクエストをタスクとして登録
         let task = session.dataTask(with: req, completionHandler: {
@@ -128,8 +141,8 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
                     }
                 }
             } catch {
-                // エラー処理
-                print("エラーが出ました")
+              // エラー処理
+              print("エラーが出ました")
             }
         })
         // ダウンロード開始
@@ -160,5 +173,31 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
         // 設定済みのCellオブジェクトを画面に反映
         return cell
     }
+    
+    // Cellが選択された際に呼び出されるdelegateメソッド
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // ハイライト解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // SFSafariViewを開く
+        let safariViewController = SFSafariViewController(url: okashiList[indexPath.row].link)
+        
+        // delegateの通知先を自分自身
+        safariViewController.delegate = self
+        
+        // SafariViewが開かれる
+        present(safariViewController, animated: true, completion: nil)
+        
+    }
+    
+    // SafariViewが閉じられた時に呼ばれるdelegateメソッド
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        
+        // SafariViewを閉じる
+        dismiss(animated: true, completion: nil)
+        
+    }
 }
-
+// Present the view controller in the Live View window
+PlaygroundPage.current.liveView = MyViewController()
