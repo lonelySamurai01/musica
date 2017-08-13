@@ -2,48 +2,46 @@
 //  SettingViewController.swift
 //  MyTimer
 //
-//  Created by Swift-Beginners
-//  Copyright © 2016年 Swift-Beginners. All rights reserved.
+//  Created by Swift-Beginners on 2017/08/13.
+//  Copyright © 2017年 Swift-Beginners. All rights reserved.
 //
 
 import UIKit
 
 class SettingViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
-  // UIPickerViewに表示するデータをArrayで作成
-  let settingArray : [Int] = [10,20,30,40,50,60]
-  
-  // 設定値を覚えるキーを設定
-  let settingKey = "timer_value"
-  
-  // SettingViewControllerの起動時に一度だけ実行される
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
-      
-      
-    // timerSettingPickerのデリゲートとデータソースの通知先を指定
-    timerSettingPicker.delegate = self
-    timerSettingPicker.dataSource = self
-      
-    // UserDefaultsの取得
-    let settings = UserDefaults.standard
-    let timerValue = settings.integer(forKey: settingKey)
-      
-    // Pickerの選択を合わせる
-    for row in 0..<settingArray.count {
-      if settingArray[row] == timerValue {
-        timerSettingPicker.selectRow(row, inComponent: 0, animated: true)
-      }
-    }
+    // UIPickerViewに表示するデータをArrayで作成
+    let settingArray : [Int] = [10,20,30,40,50,60]
     
-  }
+    // 設定値を覚えるキーを設定
+    let settingKey = "timer_value"
+    
+    // SettingViewControllerの起動時に一度だけ実行される
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
+        // Do any additional setup after loading the view.
+        
+        // timerSettingPickerのデリゲートとデータソースの通知先を指定
+        timerSettingPicker.delegate = self
+        timerSettingPicker.dataSource = self
+        
+        // UserDefaultsの取得
+        let settings = UserDefaults.standard
+        let timerValue = settings.integer(forKey: settingKey)
+        
+        // Pickerの選択を合わせる
+        for row in 0..<settingArray.count {
+            if settingArray[row] == timerValue {
+                timerSettingPicker.selectRow(row, inComponent: 0, animated: true)
+            }
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
 
     /*
@@ -55,43 +53,36 @@ class SettingViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Pass the selected object to the new view controller.
     }
     */
-
-  // 秒数表示パーツの宣言
-  @IBOutlet weak var timerSettingPicker: UIPickerView!
-  
-  // 決定ボタンがタップされた時に実行される
-  @IBAction func decisionButtonAction(_ sender: AnyObject) {
     
-    // 前画面に戻る
-    _ = navigationController?.popViewController(animated: true)
+    // 秒数表示パーツの宣言
+    @IBOutlet weak var timerSettingPicker: UIPickerView!
     
-  }
-  
-  // UIPickerViewの列数を設定
-  func numberOfComponents(in pickerView: UIPickerView) -> Int {
-    return 1
-  }
-  
-  // UIPickerViewの行数を取得
-  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return settingArray.count
-  }
-
-  // UIPickerViewの表示する内容を設定
-  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
-    return String(settingArray[row])
-  }
-  
-  // picker選択時に実行
-  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    // UserDefaultsの設定
-    let settings = UserDefaults.standard
-    settings.setValue(settingArray[row], forKey: settingKey)
-    settings.synchronize()
-  }
-  
+    // 決定ボタンがタップされた時に実行される
+    @IBAction func decisionButtonAction(_ sender: Any) {
+        // 前画面に戻る
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    // UIPickerViewの列数を設定
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // UIPickerViewの行数を取得
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return settingArray.count
+    }
+    
+    // UIPickerViewの表示する内容を設定
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+        return String(settingArray[row])
+    }
+    
+    // picker選択時に実行
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // UserDefaultsの設定
+        let settings = UserDefaults.standard
+        settings.setValue(settingArray[row], forKey: settingKey)
+        settings.synchronize()
+    }
 }
-
-
-
-
