@@ -17,45 +17,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="guf-AD-sKh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cik-Pq-kT8">
                                 <rect key="frame" x="0.0" y="20" width="375" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Of1-De-ydt">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zKm-wc-Ktv">
                                 <rect key="frame" x="0.0" y="50" width="375" height="617"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufG-3a-f11">
-                                <rect key="frame" x="313" y="629" width="46" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="QXQ-pT-Uxi"/>
-                                    <constraint firstAttribute="height" constant="30" id="Wyh-dh-ca9"/>
-                                </constraints>
-                                <state key="normal" title="切替"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkJ-mf-GKL">
+                                <rect key="frame" x="337" y="637" width="22" height="22"/>
                                 <connections>
-                                    <action selector="changeMapButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fwg-vn-LcU"/>
+                                    <action selector="changeMapButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRI-Py-kgK"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Of1-De-ydt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4cp-fL-Q8U"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="guf-AD-sKh" secondAttribute="trailing" id="4gy-DP-7YV"/>
-                            <constraint firstItem="guf-AD-sKh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6LF-DL-q9f"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ufG-3a-f11" secondAttribute="bottom" constant="8" id="MdN-Me-qYm"/>
-                            <constraint firstItem="Of1-De-ydt" firstAttribute="top" secondItem="guf-AD-sKh" secondAttribute="bottom" id="eEl-Pd-JpX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Of1-De-ydt" secondAttribute="trailing" id="j8k-c8-fzX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ufG-3a-f11" secondAttribute="trailing" constant="16" id="jRR-aJ-EP1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Of1-De-ydt" secondAttribute="bottom" id="pgZ-4d-Y2Q"/>
-                            <constraint firstItem="guf-AD-sKh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zD5-kk-sf3"/>
+                            <constraint firstItem="cik-Pq-kT8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5sV-1N-qZ9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zKm-wc-Ktv" secondAttribute="trailing" id="ETB-qo-nux"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RkJ-mf-GKL" secondAttribute="bottom" constant="8" id="In2-F6-Dxd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RkJ-mf-GKL" secondAttribute="trailing" constant="16" id="Q9d-Yj-0b5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zKm-wc-Ktv" secondAttribute="bottom" id="hUv-c0-fvZ"/>
+                            <constraint firstItem="zKm-wc-Ktv" firstAttribute="top" secondItem="cik-Pq-kT8" secondAttribute="bottom" id="lkk-gd-lBR"/>
+                            <constraint firstItem="cik-Pq-kT8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tbN-bG-lF7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cik-Pq-kT8" secondAttribute="trailing" id="vCT-yO-1iI"/>
+                            <constraint firstItem="zKm-wc-Ktv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wfO-fi-ptT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="dispMap" destination="Of1-De-ydt" id="XZ5-p1-NOs"/>
-                        <outlet property="inputText" destination="guf-AD-sKh" id="4yN-30-ixy"/>
+                        <outlet property="dispMap" destination="zKm-wc-Ktv" id="vqj-md-5uB"/>
+                        <outlet property="inputText" destination="cik-Pq-kT8" id="Pyi-b6-CV9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

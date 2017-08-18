@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MyMap
 //
-//  Created by Swift-Beginners on 2017/08/08.
+//  Created by Swift-Beginners on 2017/08/16.
 //  Copyright © 2017年 Swift-Beginners. All rights reserved.
 //
 
