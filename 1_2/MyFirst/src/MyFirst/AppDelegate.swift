@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  MyFirst
 //
-//  Created by Kanako Kobayashi on 2016/09/13.
-//  Copyright © 2016年 Swift-Beginners. All rights reserved.
+//  Created by Yoshinori Kobayashi on 2017/08/19.
+//  Copyright © 2017年 Swift-Beginners. All rights reserved.
 //
 
 import UIKit
