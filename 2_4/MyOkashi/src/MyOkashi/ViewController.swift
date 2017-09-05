@@ -66,7 +66,7 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
         let item:[ItemJson]?
     }
     
-    // SearchOkashiメソッド
+    // searchOkashiメソッド
     // 第一引数：keyword 検索したいワード
     func searchOkashi(keyword : String) {
         
