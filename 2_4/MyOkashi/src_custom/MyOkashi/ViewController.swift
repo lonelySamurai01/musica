@@ -94,7 +94,7 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDelega
         
         // リクエストをタスクとして登録
         let task = session.dataTask(with: req, completionHandler: {
-            (data , request , error) in
+            (data , response , error) in
             
             //セッションを終了
             session.finishTasksAndInvalidate()
