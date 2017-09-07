@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  MyOkashi
 //
-//  Created by Swift-Beginners on 2017/08/13.
+//  Created by Swift-Beginners.
 //  Copyright © 2017年 Swift-Beginners. All rights reserved.
 //
 
@@ -34,7 +34,7 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
     // お菓子のリスト（タプル配列）
     var okashiList : [(maker:String , name:String , link:URL , image:URL)] = []
     
-    //サーチボタンクリック時
+    // 検索ボタンをクリック（タップ）時
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // キーボードを閉じる
         view.endEditing(true)

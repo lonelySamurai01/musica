@@ -44,7 +44,7 @@ class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDat
     // お菓子のリスト（タプル配列）
     var okashiList : [(maker:String , name:String , link:URL , image:URL)] = []
     
-    //サーチボタンクリック時
+    // 検索ボタンをクリック（タップ）時
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // キーボードを閉じる
         view.endEditing(true)
