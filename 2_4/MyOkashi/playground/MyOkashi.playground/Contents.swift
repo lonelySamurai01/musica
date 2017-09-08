@@ -85,14 +85,14 @@ class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDat
         }
         
         // URLオブジェクトの生成
-        guard let url = URL(string: "http://www.sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r") else {
+        guard let req_url = URL(string: "http://www.sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r") else {
             return
         }
         
-        print(url)
+        print(req_url)
         
         // リクエストオブジェクトの生成
-        let req = URLRequest(url: url)
+        let req = URLRequest(url: req_url)
         
         // セッションの接続をカスタマイズできる
         // タイムアウト値、キャッシュポリシーなどが指定できる。今回は、デフォルト値を使用

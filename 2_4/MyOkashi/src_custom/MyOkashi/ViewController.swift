@@ -80,14 +80,14 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDelega
         }
         
         // URLオブジェクトの生成
-        guard let url = URL(string: "http://www.sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r") else {
+        guard let req_url = URL(string: "http://www.sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r") else {
             return
         }
         
-        print(url)
+        print(req_url)
         
         // リクエストオブジェクトの生成
-        let req = URLRequest(url: url)
+        let req = URLRequest(url: req_url)
         
         // セッション情報を取り出し
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
