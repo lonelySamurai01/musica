@@ -84,22 +84,18 @@ class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDat
             return
         }
         
-        // URLオブジェクトの生成
+        // リクエストURLの組み立て
         guard let req_url = URL(string: "http://www.sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r") else {
             return
         }
         
         print(req_url)
         
-        // リクエストオブジェクトの生成
+        // リクエストに必要な情報を生成
         let req = URLRequest(url: req_url)
         
-        // セッションの接続をカスタマイズできる
-        // タイムアウト値、キャッシュポリシーなどが指定できる。今回は、デフォルト値を使用
-        let configuration = URLSessionConfiguration.default
-        
-        // セッション情報を取り出し
-        let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
+        // データ転送を管理するめのセッションを生成
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
         // リクエストをタスクとして登録
         let task = session.dataTask(with: req, completionHandler: {

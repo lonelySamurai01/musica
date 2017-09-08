@@ -75,17 +75,17 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
             return
         }
         
-        // URLオブジェクトの生成
+        // リクエストURLの組み立て
         guard let req_url = URL(string: "http://www.sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r") else {
             return
         }
         
         print(req_url)
         
-        // リクエストオブジェクトの生成
+        // リクエストに必要な情報を生成
         let req = URLRequest(url: req_url)
         
-        // セッション情報を取り出し
+        // データ転送を管理するめのセッションを生成
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
         // リクエストをタスクとして登録
