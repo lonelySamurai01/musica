@@ -32,7 +32,7 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     
     // お菓子のリスト（タプル配列）
-    var okashiList : [(maker:String , name:String , link:URL , image:URL)] = []
+    var okashiList : [(name:String , maker:String , link:URL , image:URL)] = []
     
     // 検索ボタンをクリック（タップ）時
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -50,10 +50,10 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
     
     //JSONのitem内のデータ構造
     struct ItemJson: Codable {
-        //メーカー
-        let maker: String?
         //お菓子の名称
         let name: String?
+        //メーカー
+        let maker: String?
         //掲載URL
         let url: URL?
         //画像URL
@@ -111,10 +111,10 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
                     self.okashiList.removeAll()
                     // 取得しているお菓子の数だけ処理
                     for item in items {
-                        // メーカー名、お菓子の名称、掲載URL、画像URLをアンラップ
-                        if let maker = item.maker , let name = item.name , let link = item.url , let image = item.image {
+                        // お菓子の名称、メーカー名、掲載URL、画像URLをアンラップ
+                        if let name = item.name , let maker = item.maker , let link = item.url , let image = item.image {
                             // １つのお菓子をタプルでまとめて管理
-                            let okashi = (maker,name,link,image)
+                            let okashi = (name,maker,link,image)
                             // お菓子の配列へ追加
                             self.okashiList.append(okashi)
                         }
