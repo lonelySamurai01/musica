@@ -21,22 +21,22 @@ class MyViewController : UIViewController , UICollectionViewDelegate, UICollecti
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // CollectionViewのレイアウトを生成.
+    // CollectionViewのレイアウトを生成
     let layout = UICollectionViewFlowLayout()
     
-    // Cell一つ一つの大きさ.
+    // Cell一つ一つの大きさ
     layout.itemSize = CGSize(width:20, height:20)
     
-    // Cellの間を隙間を指定する
+    // Cellの列間の余白を指定する
     layout.minimumInteritemSpacing = 1.0
     
-    // Cellの行間を隙間を指定する
+    // Cellの行間の余白を指定する
     layout.minimumLineSpacing = 1.0
     
-    // CollectionViewを生成.
+    // CollectionViewを生成
     myCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
     
-    // Cellに使われるクラスを登録.
+    // Cellに使われるクラスを登録
     myCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
     
     // Viewに追加
