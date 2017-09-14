@@ -59,7 +59,7 @@ class MyViewController : UIViewController {
         shuffleButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0.0).isActive = true
         // Buttonの右端は、親ビューの右端から0ptの位置
         shuffleButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0.0).isActive = true
-        // Buttonの下端は、Buttonの上端から0ptの位置
+        // Buttonの下端は、親ビューの上端から0ptの位置
         shuffleButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0.0).isActive = true
         // Buttonの高さを100ptに設定
         shuffleButton.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
