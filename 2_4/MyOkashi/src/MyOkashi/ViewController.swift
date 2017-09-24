@@ -122,9 +122,9 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDataSo
                     // Table Viewを更新する
                     self.tableView.reloadData()
                     
-                    if let okashiList = self.okashiList.first {
+                    if let okashidbg = self.okashiList.first {
                         print ("----------------")
-                        print ("okashiList[0] = \(okashiList)")
+                        print ("okashiList[0] = \(okashidbg)")
                     }
                 }
             } catch {
