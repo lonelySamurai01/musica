@@ -110,7 +110,7 @@ class EffectViewController: UIViewController {
                 return
             }
             
-            // エフェクト後の画像をCGImage形式の画像からUIImage形式の画像に回転角度を指定して変換しImageViewに表示
+            // エフェクト後の画像をCGImage形式からUIImage形式に変更。その際に回転角度を指定。そして、ImageViewに表示
             effectImage.image = UIImage(cgImage: cgImage, scale: 1.0, orientation: rotate)
         }
     }
