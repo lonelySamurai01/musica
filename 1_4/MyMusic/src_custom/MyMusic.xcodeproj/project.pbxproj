@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		826284D91FCEFFA600C6E07A /* backmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DD60A211F39FD4C00F80444 /* backmusic.mp3 */; };
+		826284DA1FCEFFA600C6E07A /* cymbal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DD60A221F39FD4C00F80444 /* cymbal.mp3 */; };
+		826284DB1FCEFFA600C6E07A /* guitar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DD60A231F39FD4C00F80444 /* guitar.mp3 */; };
 		9D7B024F1F3366E100AB8D1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B024E1F3366E100AB8D1B /* AppDelegate.swift */; };
 		9D7B02511F3366E100AB8D1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B02501F3366E100AB8D1B /* ViewController.swift */; };
 		9D7B02541F3366E100AB8D1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7B02521F3366E100AB8D1B /* Main.storyboard */; };
@@ -129,6 +132,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D7B02591F3366E100AB8D1B /* LaunchScreen.storyboard in Resources */,
+				826284DA1FCEFFA600C6E07A /* cymbal.mp3 in Resources */,
+				826284DB1FCEFFA600C6E07A /* guitar.mp3 in Resources */,
+				826284D91FCEFFA600C6E07A /* backmusic.mp3 in Resources */,
 				9D7B02561F3366E100AB8D1B /* Assets.xcassets in Resources */,
 				9D7B02541F3366E100AB8D1B /* Main.storyboard in Resources */,
 			);
