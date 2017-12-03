@@ -91,12 +91,13 @@ class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDat
         //複数要素
         let item:[ItemJson]?
     }
+    
     // searchOkashiメソッド
     // 第一引数：keyword 検索したいワード
     func searchOkashi(keyword : String) {
         
         // お菓子の検索キーワードをURLエンコードする
-        guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
+        guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return
         }
         
@@ -153,8 +154,8 @@ class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDat
                     }
                 }
             } catch {
-              // エラー処理
-              print("エラーが出ました")
+                // エラー処理
+                print("エラーが出ました")
             }
         })
         // ダウンロード開始
@@ -169,7 +170,6 @@ class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDat
     
     // Cellに値を設定するdatasourceメソッド。必ず記述する必要があります
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         // 今回表示を行う、Cellオブジェクト（１行）を取得する
         let cell = tableView.dequeueReusableCell(withIdentifier: "okashiCell", for: indexPath)
         
@@ -188,7 +188,6 @@ class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDat
     
     // Cellが選択された際に呼び出されるdelegateメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         // ハイライト解除
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -200,15 +199,12 @@ class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDat
         
         // SafariViewが開かれる
         present(safariViewController, animated: true, completion: nil)
-        
     }
     
     // SafariViewが閉じられた時に呼ばれるdelegateメソッド
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        
         // SafariViewを閉じる
         dismiss(animated: true, completion: nil)
-        
     }
 }
 // Present the view controller in the Live View window
