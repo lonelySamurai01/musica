@@ -11,11 +11,11 @@ class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDat
         view.backgroundColor = .white
 
         searchText = UISearchBar()
-        searchText.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 56)
+        searchText.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(searchText)
         
         tableView = UITableView()
-        tableView.frame = CGRect(x: 0, y: 56, width: view.frame.size.width, height: view.frame.size.height - 56)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "okashiCell")
         view.addSubview(tableView)
 
@@ -25,7 +25,23 @@ class MyViewController : UIViewController , UISearchBarDelegate , UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        //オートレイアウト設定
+        // サーチバーの左端は、親ビューの左端から0ptの位置
+        searchText.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0.0).isActive = true
+        // サーチバーの右端は、親ビューの右端から0ptの位置
+        searchText.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0.0).isActive = true
+        // サーチバーの上端は、親ビューの上端から0ptの位置
+        searchText.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0.0).isActive = true
+        // サーチバーの下端は、 カメラボタンの上端から0ptの位置
+        searchText.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: 0.0).isActive = true
+
+        // SNSボタンの左端は、親ビューの左端から0ptの位置
+        tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0.0).isActive = true
+        // SNSボタンの右端は、親ビューの右端から0ptの位置
+        tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0.0).isActive = true
+        // SNSボタンの下端は、 親ビューの下端から0ptの位置
+        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0.0).isActive = true
+
         // Search Barのdelegate通知先を設定
         searchText.delegate = self
         // 入力のヒントになる、プレースホルダを設定
