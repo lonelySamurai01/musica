@@ -116,9 +116,9 @@ class MyViewController : UIViewController , UINavigationControllerDelegate , UII
     }
     
     // (1)撮影が終わったときに呼ばれるdelegateメソッド
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // (2)撮影した写真を、配置したcaptureImageに渡す
-        captureImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        captureImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         // (3)モーダルビューを閉じる
         dismiss(animated: true, completion: {
             // Storyboardがないため画面遷移の方法が書籍と異なります

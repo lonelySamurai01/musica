@@ -72,7 +72,7 @@ class ViewController: UIViewController , UITextFieldDelegate {
               self.dispMap.addAnnotation(pin)
               
               // 緯度経度を中心にして半径500mの範囲を表示(16)
-              self.dispMap.region = MKCoordinateRegionMakeWithDistance(targetCoordinate, 500.0, 500.0)
+              self.dispMap.region = MKCoordinateRegion(center: targetCoordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
             }
           }
         }
