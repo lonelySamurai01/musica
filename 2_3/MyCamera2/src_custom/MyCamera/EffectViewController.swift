@@ -68,7 +68,7 @@ class EffectViewController: UIViewController {
     @IBAction func effectButtonAction(_ sender: Any) {
         // エフェクト前画像をアンラップしてエフェクト用画像として取り出す
         if let image = originalImage {
-            // フィルター名を指定
+            // フィルタ名を指定
             let filterName = filterArray[filterSelectNumber]
             
             // 次の選択するエフェクト添字に更新
@@ -86,7 +86,7 @@ class EffectViewController: UIViewController {
             // UIImage形式の画像をCIImage形式の画像に変換
             let inputImage = CIImage(image: image)
             
-            // フィルターの種類を引数で指定された種類を指定してCIFilterのインスタンスを取得
+            // フィルタの種類を引数で指定された種類を指定してCIFilterのインスタンスを取得
             guard let effectFilter = CIFilter(name: filterName) else {
                 return
             }
