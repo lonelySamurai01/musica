@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,39 +17,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cik-Pq-kT8">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cO5-LQ-O1y">
                                 <rect key="frame" x="0.0" y="20" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WiN-wg-omg"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zKm-wc-Ktv">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="e4v-Tz-X8o">
                                 <rect key="frame" x="0.0" y="50" width="375" height="617"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkJ-mf-GKL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3Q-xP-X9U">
                                 <rect key="frame" x="337" y="637" width="22" height="22"/>
                                 <connections>
-                                    <action selector="changeMapButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRI-Py-kgK"/>
+                                    <action selector="changeMapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qem-oY-FbM"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cik-Pq-kT8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5sV-1N-qZ9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zKm-wc-Ktv" secondAttribute="trailing" id="ETB-qo-nux"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RkJ-mf-GKL" secondAttribute="bottom" constant="8" id="In2-F6-Dxd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RkJ-mf-GKL" secondAttribute="trailing" constant="16" id="Q9d-Yj-0b5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zKm-wc-Ktv" secondAttribute="bottom" id="hUv-c0-fvZ"/>
-                            <constraint firstItem="zKm-wc-Ktv" firstAttribute="top" secondItem="cik-Pq-kT8" secondAttribute="bottom" id="lkk-gd-lBR"/>
-                            <constraint firstItem="cik-Pq-kT8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tbN-bG-lF7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cik-Pq-kT8" secondAttribute="trailing" id="vCT-yO-1iI"/>
-                            <constraint firstItem="zKm-wc-Ktv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wfO-fi-ptT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e4v-Tz-X8o" secondAttribute="trailing" id="8DG-x8-srs"/>
+                            <constraint firstItem="e4v-Tz-X8o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NeK-QY-cuh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q3Q-xP-X9U" secondAttribute="trailing" constant="16" id="Nng-Tn-hK5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e4v-Tz-X8o" secondAttribute="bottom" id="Qff-O2-hU1"/>
+                            <constraint firstItem="cO5-LQ-O1y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UhX-jG-7aC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Q3Q-xP-X9U" secondAttribute="bottom" constant="8" id="bRx-it-5wi"/>
+                            <constraint firstItem="e4v-Tz-X8o" firstAttribute="top" secondItem="cO5-LQ-O1y" secondAttribute="bottom" id="egq-UH-dU5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cO5-LQ-O1y" secondAttribute="trailing" id="f3P-nt-aoM"/>
+                            <constraint firstItem="cO5-LQ-O1y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wtW-Ne-Px4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="dispMap" destination="zKm-wc-Ktv" id="vqj-md-5uB"/>
-                        <outlet property="inputText" destination="cik-Pq-kT8" id="Pyi-b6-CV9"/>
+                        <outlet property="dispMap" destination="e4v-Tz-X8o" id="wZp-9a-lpf"/>
+                        <outlet property="inputText" destination="cO5-LQ-O1y" id="Z5e-LA-oMT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
