@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  MyCamera
 //
-//  Created by Swift-Beginners on 2017/08/13.
-//  Copyright © 2017年 Swift-Beginners. All rights reserved.
+//  Created by Swift-Beginners on 2018/08/25.
+//  Copyright © 2018年 Swift-Beginners. All rights reserved.
 //
 
 import UIKit
@@ -15,44 +15,36 @@ class ViewController: UIViewController , UINavigationControllerDelegate , UIImag
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBOutlet weak var pictureImage: UIImageView!
     
-    // カメラを起動するボタンをタップすると実行
+    // カメラを起動するをタップすると実行
     @IBAction func cameraButtonAction(_ sender: Any) {
         // カメラが利用可能かチェック
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
             print("カメラは利用できます")
             // (1)UIImagePickerControllerのインスタンスを作成
             let imagePickerController = UIImagePickerController()
-            // (2)sourceTypeにCameraを設定
+            // (2)sourceTypeにcameraを設定
             imagePickerController.sourceType = .camera
             // (3)delegate設置
             imagePickerController.delegate = self
             // (4)モーダルビューで表示
             present(imagePickerController, animated: true, completion: nil)
-        }else{
-            print("カメラが利用できません")
+        } else {
+            print("カメラは利用できません")
         }
     }
     
-    // SNSに投稿するボタンをタップすると実行
+    // SNSに投稿するをタップすると実行
     @IBAction func SNSButtonAction(_ sender: Any) {
-        // 表示画像をアンラップしてシェア画像として取り出し
+        // 表示画像をアンラップしてシェア画像を取り出し
         if let shareImage = pictureImage.image {
             // UIActivityViewControllerに渡す配列を作成
             let shareItems = [shareImage]
-            
             // UIActivityViewControllerにシェア画像を渡す
             let controller = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
-            
             // iPadで落ちてしまう対策
             controller.popoverPresentationController?.sourceView = view
-            
             // UIActivityViewControllerを表示
             present(controller, animated: true, completion: nil)
         }
@@ -66,3 +58,4 @@ class ViewController: UIViewController , UINavigationControllerDelegate , UIImag
         dismiss(animated: true, completion: nil)
     }
 }
+
