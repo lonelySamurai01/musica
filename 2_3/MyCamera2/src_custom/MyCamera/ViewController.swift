@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  MyCamera
 //
-//  Created by Swift-Beginners on 2017/08/13.
-//  Copyright © 2017年 Swift-Beginners. All rights reserved.
+//  Created by Swift-Beginners on 2018/08/25.
+//  Copyright © 2018年 Swift-Beginners. All rights reserved.
 //
 
 import UIKit
@@ -15,24 +15,19 @@ class ViewController: UIViewController , UINavigationControllerDelegate , UIImag
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBOutlet weak var pictureImage: UIImageView!
     
-    // カメラを起動するボタンをタップすると実行
+    // カメラを起動するをタップすると実行
     @IBAction func cameraButtonAction(_ sender: Any) {
         // カメラかフォトライブラリーどちらから画像を取得するか選択
         let alertController = UIAlertController(title: "確認", message: "選択してください", preferredStyle: .actionSheet)
         
         // カメラが利用可能かチェック
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
             // カメラを起動するための選択肢を定義
-            let cameraAction = UIAlertAction(title: "カメラ", style: .default, handler:  { (action:UIAlertAction) in
+            let cameraAction = UIAlertAction(title: "カメラ", style: .default, handler: { (action:UIAlertAction) in
                 // カメラを起動
-                let imagePickerController : UIImagePickerController = UIImagePickerController()
+                let imagePickerController = UIImagePickerController()
                 imagePickerController.sourceType = .camera
                 imagePickerController.delegate = self
                 self.present(imagePickerController, animated: true, completion: nil)
@@ -41,11 +36,11 @@ class ViewController: UIViewController , UINavigationControllerDelegate , UIImag
         }
         
         // フォトライブラリーが利用可能かチェック
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             // フォトライブラリーを起動するための選択肢を定義
             let photoLibraryAction = UIAlertAction(title: "フォトライブラリー", style: .default, handler: { (action:UIAlertAction) in
                 // フォトライブラリーを起動
-                let imagePickerController : UIImagePickerController = UIImagePickerController()
+                let imagePickerController = UIImagePickerController()
                 imagePickerController.sourceType = .photoLibrary
                 imagePickerController.delegate = self
                 self.present(imagePickerController, animated: true, completion: nil)
@@ -64,19 +59,16 @@ class ViewController: UIViewController , UINavigationControllerDelegate , UIImag
         present(alertController, animated: true, completion: nil)
     }
     
-    // SNSに投稿するボタンをタップすると実行
+    // SNSに投稿するをタップすると実行
     @IBAction func SNSButtonAction(_ sender: Any) {
-        // 表示画像をアンラップしてシェア画像として取り出し
+        // 表示画像をアンラップしてシェア画像を取り出し
         if let shareImage = pictureImage.image {
             // UIActivityViewControllerに渡す配列を作成
             let shareItems = [shareImage]
-            
             // UIActivityViewControllerにシェア画像を渡す
             let controller = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
-            
             // iPadで落ちてしまう対策
             controller.popoverPresentationController?.sourceView = view
-            
             // UIActivityViewControllerを表示
             present(controller, animated: true, completion: nil)
         }
@@ -99,8 +91,10 @@ class ViewController: UIViewController , UINavigationControllerDelegate , UIImag
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 次の画面のインスタンスを格納
         if let nextViewController = segue.destination as? EffectViewController {
-            //次の画面のインスタンスに取得した画像を渡す
+            // 次の画面のインスタンスに取得した画像を渡す
             nextViewController.originalImage = captureImage
         }
     }
+    
 }
+

@@ -2,8 +2,8 @@
 //  EffectViewController.swift
 //  MyCamera
 //
-//  Created by Swift-Beginners on 2017/08/13.
-//  Copyright © 2017年 Swift-Beginners. All rights reserved.
+//  Created by Swift-Beginners on 2018/08/25.
+//  Copyright © 2018年 Swift-Beginners. All rights reserved.
 //
 
 import UIKit
@@ -18,11 +18,6 @@ class EffectViewController: UIViewController {
         // 画面遷移時に元の画像を表示
         effectImage.image = originalImage
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
     /*
@@ -30,7 +25,7 @@ class EffectViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+        // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
     */
@@ -57,7 +52,7 @@ class EffectViewController: UIViewController {
                        "CIPhotoEffectTransfer",
                        "CISepiaTone"
     ]
-    
+
     // 選択中のエフェクト添字
     var filterSelectNumber = 0
     
@@ -73,60 +68,48 @@ class EffectViewController: UIViewController {
             
             // 次の選択するエフェクト添字に更新
             filterSelectNumber += 1
-            
             // 添字が配列の数と同じか？チェック
             if filterSelectNumber == filterArray.count {
                 // 同じ場合は最後まで選択されたので先頭に戻す
                 filterSelectNumber = 0
             }
-
+            
             // 元々の画像の回転角度を取得
             let rotate = image.imageOrientation
-            
             // UIImage形式の画像をCIImage形式の画像に変換
             let inputImage = CIImage(image: image)
-            
-            // フィルタの種類を引数で指定された種類を指定してCIFilterのインスタンスを取得
+            // フィルターの種類を引数で指定された種類を指定してCIFilterのインスタンスを取得
             guard let effectFilter = CIFilter(name: filterName) else {
                 return
             }
-            
             // エフェクトのパラメータを初期化
             effectFilter.setDefaults()
-            
             // インスタンスにエフェクトする元画像を設定
             effectFilter.setValue(inputImage, forKey: kCIInputImageKey)
-            
             // エフェクト後のCIImage形式の画像を取り出す
             guard let outputImage = effectFilter.outputImage else {
                 return
             }
-            
-            // CIContextのインスタンスを取得
+            // CIContextのインタンスを取得
             let ciContext = CIContext(options: nil)
-            
             // エフェクト後の画像をCIContext上に描画し、結果をcgImageとしてCGImage形式の画像を取得
             guard let cgImage = ciContext.createCGImage(outputImage, from: outputImage.extent) else {
                 return
             }
-            
             // エフェクト後の画像をCGImage形式からUIImage形式に変更。その際に回転角度を指定。そして、ImageViewに表示
             effectImage.image = UIImage(cgImage: cgImage, scale: 1.0, orientation: rotate)
         }
     }
     
     @IBAction func shareButtonAction(_ sender: Any) {
-        // 表示画像をアンラップしてシェア画像として取り出す
+        // 表示画像をアンラップしてシェア画像を取り出し
         if let shareImage = effectImage.image {
             // UIActivityViewControllerに渡す配列を作成
             let shareItems = [shareImage]
-            
             // UIActivityViewControllerにシェア画像を渡す
             let controller = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
-            
             // iPadで落ちてしまう対策
             controller.popoverPresentationController?.sourceView = view
-            
             // UIActivityViewControllerを表示
             present(controller, animated: true, completion: nil)
         }
@@ -136,4 +119,6 @@ class EffectViewController: UIViewController {
         // 画面を閉じて前の画面に戻る
         dismiss(animated: true, completion: nil)
     }
+    
 }
+
