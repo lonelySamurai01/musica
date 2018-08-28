@@ -3,29 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9DE777C91F403C760089A66B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE777C81F403C760089A66B /* AppDelegate.swift */; };
-		9DE777CB1F403C760089A66B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE777CA1F403C760089A66B /* ViewController.swift */; };
-		9DE777CE1F403C760089A66B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE777CC1F403C760089A66B /* Main.storyboard */; };
-		9DE777D01F403C760089A66B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE777CF1F403C760089A66B /* Assets.xcassets */; };
-		9DE777D31F403C760089A66B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE777D11F403C760089A66B /* LaunchScreen.storyboard */; };
+		FEFAD4E32134A0FB00559C98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFAD4E22134A0FB00559C98 /* AppDelegate.swift */; };
+		FEFAD4E52134A0FB00559C98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFAD4E42134A0FB00559C98 /* ViewController.swift */; };
+		FEFAD4E82134A0FB00559C98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEFAD4E62134A0FB00559C98 /* Main.storyboard */; };
+		FEFAD4EA2134A0FC00559C98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEFAD4E92134A0FC00559C98 /* Assets.xcassets */; };
+		FEFAD4ED2134A0FC00559C98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEFAD4EB2134A0FC00559C98 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9DE777C51F403C760089A66B /* MyOkashi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyOkashi.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DE777C81F403C760089A66B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9DE777CA1F403C760089A66B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9DE777CD1F403C760089A66B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9DE777CF1F403C760089A66B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9DE777D21F403C760089A66B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9DE777D41F403C770089A66B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEFAD4DF2134A0FB00559C98 /* MyOkashi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyOkashi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEFAD4E22134A0FB00559C98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FEFAD4E42134A0FB00559C98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FEFAD4E72134A0FB00559C98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FEFAD4E92134A0FC00559C98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FEFAD4EC2134A0FC00559C98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FEFAD4EE2134A0FC00559C98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9DE777C21F403C760089A66B /* Frameworks */ = {
+		FEFAD4DC2134A0FB00559C98 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,31 +35,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9DE777BC1F403C760089A66B = {
+		FEFAD4D62134A0FB00559C98 = {
 			isa = PBXGroup;
 			children = (
-				9DE777C71F403C760089A66B /* MyOkashi */,
-				9DE777C61F403C760089A66B /* Products */,
+				FEFAD4E12134A0FB00559C98 /* MyOkashi */,
+				FEFAD4E02134A0FB00559C98 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9DE777C61F403C760089A66B /* Products */ = {
+		FEFAD4E02134A0FB00559C98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9DE777C51F403C760089A66B /* MyOkashi.app */,
+				FEFAD4DF2134A0FB00559C98 /* MyOkashi.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9DE777C71F403C760089A66B /* MyOkashi */ = {
+		FEFAD4E12134A0FB00559C98 /* MyOkashi */ = {
 			isa = PBXGroup;
 			children = (
-				9DE777C81F403C760089A66B /* AppDelegate.swift */,
-				9DE777CA1F403C760089A66B /* ViewController.swift */,
-				9DE777CC1F403C760089A66B /* Main.storyboard */,
-				9DE777CF1F403C760089A66B /* Assets.xcassets */,
-				9DE777D11F403C760089A66B /* LaunchScreen.storyboard */,
-				9DE777D41F403C770089A66B /* Info.plist */,
+				FEFAD4E22134A0FB00559C98 /* AppDelegate.swift */,
+				FEFAD4E42134A0FB00559C98 /* ViewController.swift */,
+				FEFAD4E62134A0FB00559C98 /* Main.storyboard */,
+				FEFAD4E92134A0FC00559C98 /* Assets.xcassets */,
+				FEFAD4EB2134A0FC00559C98 /* LaunchScreen.storyboard */,
+				FEFAD4EE2134A0FC00559C98 /* Info.plist */,
 			);
 			path = MyOkashi;
 			sourceTree = "<group>";
@@ -67,13 +67,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9DE777C41F403C760089A66B /* MyOkashi */ = {
+		FEFAD4DE2134A0FB00559C98 /* MyOkashi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9DE777D71F403C770089A66B /* Build configuration list for PBXNativeTarget "MyOkashi" */;
+			buildConfigurationList = FEFAD4F12134A0FC00559C98 /* Build configuration list for PBXNativeTarget "MyOkashi" */;
 			buildPhases = (
-				9DE777C11F403C760089A66B /* Sources */,
-				9DE777C21F403C760089A66B /* Frameworks */,
-				9DE777C31F403C760089A66B /* Resources */,
+				FEFAD4DB2134A0FB00559C98 /* Sources */,
+				FEFAD4DC2134A0FB00559C98 /* Frameworks */,
+				FEFAD4DD2134A0FB00559C98 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -81,81 +81,80 @@
 			);
 			name = MyOkashi;
 			productName = MyOkashi;
-			productReference = 9DE777C51F403C760089A66B /* MyOkashi.app */;
+			productReference = FEFAD4DF2134A0FB00559C98 /* MyOkashi.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9DE777BD1F403C760089A66B /* Project object */ = {
+		FEFAD4D72134A0FB00559C98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Swift-Beginners";
 				TargetAttributes = {
-					9DE777C41F403C760089A66B = {
-						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1000;
+					FEFAD4DE2134A0FB00559C98 = {
+						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
-			buildConfigurationList = 9DE777C01F403C760089A66B /* Build configuration list for PBXProject "MyOkashi" */;
-			compatibilityVersion = "Xcode 8.0";
+			buildConfigurationList = FEFAD4DA2134A0FB00559C98 /* Build configuration list for PBXProject "MyOkashi" */;
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 9DE777BC1F403C760089A66B;
-			productRefGroup = 9DE777C61F403C760089A66B /* Products */;
+			mainGroup = FEFAD4D62134A0FB00559C98;
+			productRefGroup = FEFAD4E02134A0FB00559C98 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9DE777C41F403C760089A66B /* MyOkashi */,
+				FEFAD4DE2134A0FB00559C98 /* MyOkashi */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9DE777C31F403C760089A66B /* Resources */ = {
+		FEFAD4DD2134A0FB00559C98 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DE777D31F403C760089A66B /* LaunchScreen.storyboard in Resources */,
-				9DE777D01F403C760089A66B /* Assets.xcassets in Resources */,
-				9DE777CE1F403C760089A66B /* Main.storyboard in Resources */,
+				FEFAD4ED2134A0FC00559C98 /* LaunchScreen.storyboard in Resources */,
+				FEFAD4EA2134A0FC00559C98 /* Assets.xcassets in Resources */,
+				FEFAD4E82134A0FB00559C98 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9DE777C11F403C760089A66B /* Sources */ = {
+		FEFAD4DB2134A0FB00559C98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DE777CB1F403C760089A66B /* ViewController.swift in Sources */,
-				9DE777C91F403C760089A66B /* AppDelegate.swift in Sources */,
+				FEFAD4E52134A0FB00559C98 /* ViewController.swift in Sources */,
+				FEFAD4E32134A0FB00559C98 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9DE777CC1F403C760089A66B /* Main.storyboard */ = {
+		FEFAD4E62134A0FB00559C98 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9DE777CD1F403C760089A66B /* Base */,
+				FEFAD4E72134A0FB00559C98 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		9DE777D11F403C760089A66B /* LaunchScreen.storyboard */ = {
+		FEFAD4EB2134A0FC00559C98 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9DE777D21F403C760089A66B /* Base */,
+				FEFAD4EC2134A0FC00559C98 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -163,7 +162,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9DE777D51F403C770089A66B /* Debug */ = {
+		FEFAD4EF2134A0FC00559C98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -173,6 +172,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -214,7 +214,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -222,7 +223,7 @@
 			};
 			name = Debug;
 		};
-		9DE777D61F403C770089A66B /* Release */ = {
+		FEFAD4F02134A0FC00559C98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -232,6 +233,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -268,18 +270,25 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		9DE777D81F403C770089A66B /* Debug */ = {
+		FEFAD4F22134A0FC00559C98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69U32QXGLT;
 				INFOPLIST_FILE = MyOkashi/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners.MyOkashi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -287,12 +296,17 @@
 			};
 			name = Debug;
 		};
-		9DE777D91F403C770089A66B /* Release */ = {
+		FEFAD4F32134A0FC00559C98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69U32QXGLT;
 				INFOPLIST_FILE = MyOkashi/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners.MyOkashi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -303,25 +317,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9DE777C01F403C760089A66B /* Build configuration list for PBXProject "MyOkashi" */ = {
+		FEFAD4DA2134A0FB00559C98 /* Build configuration list for PBXProject "MyOkashi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9DE777D51F403C770089A66B /* Debug */,
-				9DE777D61F403C770089A66B /* Release */,
+				FEFAD4EF2134A0FC00559C98 /* Debug */,
+				FEFAD4F02134A0FC00559C98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9DE777D71F403C770089A66B /* Build configuration list for PBXNativeTarget "MyOkashi" */ = {
+		FEFAD4F12134A0FC00559C98 /* Build configuration list for PBXNativeTarget "MyOkashi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9DE777D81F403C770089A66B /* Debug */,
-				9DE777D91F403C770089A66B /* Release */,
+				FEFAD4F22134A0FC00559C98 /* Debug */,
+				FEFAD4F32134A0FC00559C98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9DE777BD1F403C760089A66B /* Project object */;
+	rootObject = FEFAD4D72134A0FB00559C98 /* Project object */;
 }

@@ -2,34 +2,27 @@
 //  ViewController.swift
 //  MyOkashi
 //
-//  Created by Swift-Beginners.
-//  Copyright © 2017年 Swift-Beginners. All rights reserved.
+//  Created by Swift-Beginners on 2018/08/28.
+//  Copyright © 2018年 Swift-Beginners. All rights reserved.
 //
 
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController , UISearchBarDelegate , UITableViewDelegate , UITableViewDataSource , SFSafariViewControllerDelegate {
+class ViewController: UIViewController,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,SFSafariViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+  
         // Search Barのdelegate通知先を設定
         searchText.delegate = self
         // 入力のヒントになる、プレースホルダを設定
         searchText.placeholder = "お菓子の名前を入力してください"
-        
         // Table ViewのdataSourceを設定
         tableView.dataSource = self
-        
         // Table Viewのdelegateを設定
         tableView.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBOutlet weak var searchText: UISearchBar!
@@ -46,7 +39,6 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDelega
         if let searchWord = searchBar.text {
             // デバックエリアに出力
             print(searchWord)
-            
             // 入力されていたら、お菓子を検索
             searchOkashi(keyword: searchWord)
         }
@@ -83,31 +75,25 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDelega
         guard let req_url = URL(string: "http://www.sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r") else {
             return
         }
-        
         print(req_url)
         
         // リクエストに必要な情報を生成
         let req = URLRequest(url: req_url)
-        
         // データ転送を管理するめのセッションを生成
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        
         // リクエストをタスクとして登録
         let task = session.dataTask(with: req, completionHandler: {
             (data , response , error) in
-            
             //セッションを終了
             session.finishTasksAndInvalidate()
-            
             // do try catch エラーハンドリング
             do {
                 //JSONDecoderのインスタンス取得
                 let decoder = JSONDecoder()
-                
                 // 受け取ったJSONデータをパース（解析）して格納
                 let json = try decoder.decode(ResultJson.self, from: data!)
-                
-                print(json)
+            
+                // print(json)
                 
                 // お菓子の情報が取得できているか確認
                 if let items = json.item {
@@ -122,7 +108,7 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDelega
                             // お菓子の配列へ追加
                             self.okashiList.append(okashi)
                         }
-                    }
+                    }                    
                     // Table Viewを更新する
                     self.tableView.reloadData()
                     
@@ -137,7 +123,7 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDelega
             }
         })
         // ダウンロード開始
-        task.resume()
+        task.resume()    
     }
     
     // Cellの総数を返すdatasourceメソッド、必ず記述する必要があります
@@ -150,16 +136,13 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 今回表示を行う、Cellオブジェクト（１行）を取得する
         let cell = tableView.dequeueReusableCell(withIdentifier: "okashiCell", for: indexPath)
-        
         // お菓子のタイトル設定
         cell.textLabel?.text = okashiList[indexPath.row].name
-        
         // お菓子画像を取得
         if let imageData = try? Data(contentsOf: okashiList[indexPath.row].image) {
             // 正常に取得できた場合は、UIImageで画像オブジェクトを生成して、Cellにお菓子画像を設定
             cell.imageView?.image = UIImage(data: imageData)
         }
-        
         // 設定済みのCellオブジェクトを画面に反映
         return cell
     }
@@ -185,4 +168,3 @@ class ViewController: UIViewController , UISearchBarDelegate , UITableViewDelega
         dismiss(animated: true, completion: nil)
     }
 }
-
