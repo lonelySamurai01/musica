@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  MyMusic
 //
-//  Created by Swift-Beginners on 2017/08/03.
-//  Copyright © 2017年 Swift-Beginners. All rights reserved.
+//  Created by Swift-Beginners on 2018/09/17.
+//  Copyright © 2018年 Swift-Beginners. All rights reserved.
 //
 
 import UIKit
@@ -16,23 +16,18 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // シンバルの音源ファイルを指定
     let cymbalPath = Bundle.main.bundleURL.appendingPathComponent("cymbal.mp3")
-    
+
     // シンバル用のプレイヤーインスタンスを作成
     var cymbalPlayer = AVAudioPlayer()
     
+    // シンバルがタップされた時の処理
     @IBAction func cymbal(_ sender: Any) {
         do {
             // シンバル用のプレイヤーに、音源ファイル名を指定
             cymbalPlayer = try AVAudioPlayer(contentsOf: cymbalPath, fileTypeHint: nil)
-            
-            // シンバルの音源再生
+            //シンバルの音源再生
             cymbalPlayer.play()
         } catch {
             print("シンバルで、エラーが発生しました！")
@@ -44,8 +39,8 @@ class ViewController: UIViewController {
     
     // ギター用のプレイヤーインスタンスを作成
     var guitarPlayer = AVAudioPlayer()
-    
-    // ギターがタップされた時の処理
+
+     // ギターがタップされた時の処理
     @IBAction func guitar(_ sender: Any) {
         do {
             // ギター用のプレイヤーに、音源ファイル名を指定
